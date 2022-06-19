@@ -1,0 +1,11 @@
+﻿  quadtree.cpp
+C:\Users\Dragos\Desktop\quadtree_collision_detection\quadtree_collision_detection\quadtree.cpp(16,41): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Dragos\Desktop\quadtree_collision_detection\quadtree_collision_detection\quadtree.cpp(60,29): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Dragos\Desktop\quadtree_collision_detection\quadtree_collision_detection\quadtree.cpp(74,29): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Dragos\Desktop\quadtree_collision_detection\quadtree_collision_detection\quadtree.cpp(106,65): warning C4244: 'argument': conversion from 'double' to 'int32_t', possible loss of data
+C:\Users\Dragos\Desktop\quadtree_collision_detection\quadtree_collision_detection\quadtree.cpp(106,42): warning C4244: 'argument': conversion from 'double' to 'int32_t', possible loss of data
+C:\Users\Dragos\Desktop\quadtree_collision_detection\quadtree_collision_detection\quadtree.cpp(112,87): warning C4244: 'argument': conversion from 'double' to 'int32_t', possible loss of data
+C:\Users\Dragos\Desktop\quadtree_collision_detection\quadtree_collision_detection\quadtree.cpp(112,69): warning C4244: 'argument': conversion from 'double' to 'int32_t', possible loss of data
+C:\Users\Dragos\Desktop\quadtree_collision_detection\quadtree_collision_detection\quadtree.cpp(112,50): warning C4244: 'argument': conversion from 'double' to 'int32_t', possible loss of data
+C:\Users\Dragos\Desktop\quadtree_collision_detection\quadtree_collision_detection\quadtree.cpp(112,31): warning C4244: 'argument': conversion from 'double' to 'int32_t', possible loss of data
+  quadtree_collision_detection.vcxproj -> C:\Users\Dragos\Desktop\quadtree_collision_detection\Debug\quadtree_collision_detection.exe
