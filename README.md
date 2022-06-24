@@ -1,4 +1,9 @@
 <h1>Detectarea de coliziuni între cercuri</h1>
+<i>
+<b>
+Documentația cu segmente de cod și imagini relevante se găsețte în PDF-ul din cadrul repository-ului. 
+</b>
+</i>
 
 <h2>1. Coliziune</h2>
 <hr>
