@@ -19,14 +19,14 @@ Alegând arbitrar un spațiu dreptunghiular și 100 de obiecte care îl populeaz
 </p>
  <h3>2.2 Soluții</h3>
 <p>
-  O soluție comună în rândul programatorilor o constituie partiționarea spațiului inițial. Motivul din spatele acestei metode de diminuare a numărului de operații este intuitiv: două obiecte aflate la capete opuse ale unui spațiu sau sub-spațiu nu se ating, drept urmare, nu este necesară operația de verificare între obiecte aflate la distanțe mari unul de celălalt. Această separare a spațiului se poate realiza folosind o structură de  de tip <i>quadtree</i>.
+  O soluție comună în rândul programatorilor o constituie partiționarea spațiului inițial. Motivul din spatele acestei metode de diminuare a numărului de operații este intuitiv: două obiecte aflate în același sub-spațiu nu se ating, drept urmare, nu este necesară operația de verificare între acestea. Această separare a spațiului se poate realiza folosind o structură de  de tip <i>quadtree</i>.
  </p>
  
   <h2>3. Quadtree</h2>
   <hr>
   <h3>3.1 Definiție și paradigmă</h3>
   <p>
-  Un <i>quadtree</i> este o structură de  care codifică un spațiu bidimensional în celule adaptabile sau ajustabile din punct de vedere al mărimii. Asemănător cu arborii binari, <i>quadtrees</i> sunt arbori în care fiecare nod care nu reprezintă o frunză va avea patru copii.
+  Un <i>quadtree</i> este o structură de care codifică un spațiu bidimensional în celule adaptabile sau ajustabile din punct de vedere al mărimii. Asemănător cu arborii binari, <i>quadtrees</i> sunt arbori în care fiecare nod care nu reprezintă o frunză va avea patru copii.
   </p>
   <h3>3.2 Partiționare prin cadrane</h3>
   <p>
@@ -40,11 +40,11 @@ Alegând arbitrar un spațiu dreptunghiular și 100 de obiecte care îl populeaz
   În ceea ce privește detaliile de implementare, arborele cuprinde drept câmpuri private un număr maxim de obiecte, o variabilă booleană care reține dacă un nod se împarte la rândul său, un vector de noduri, un vector de cercuri și un dreptunghi, definit de coordonatele unui colț și lungimile laturilor. Metodele folosite sunt cele de inserare, ștergere, împărțire, ștergere completă și de afișare grafică. De menționat este faptul că dreptunghiul cuprinde și o metodă care verifică dacă un cerc arbitrar ales este sau nu aflat în interiorul lui.
   </p>
   <h3>4.2 Constructori</h3>
-  Constructorul <i>quadtree</i>-ului setează un număr maxim de obiecte egal cu 10, inițializează cu <i>false</i> valoarea variabilei care ține cont dacă un nod este sau nu împărțit în sub-noduri și desemnează coordonatele primul dreptunghi. Constructorul dreptunghiului pune implicit coordonatele colțului pe poziția (0; 0) și consideră lungimea ambelor laturi egală cu 1. 
+  Constructorul <i>quadtree</i>-ului setează un număr maxim de obiecte egal cu 10 per nod, inițializează cu <i>false</i> valoarea variabilei care ține cont dacă un nod este sau nu împărțit în sub-noduri (dacă este frunză) și desemnează coordonatele primul dreptunghi. Constructorul dreptunghiului pune implicit coordonatele colțului pe poziția (0; 0) și consideră lungimea ambelor laturi egală cu 1. 
   <h3>4.3 Metode</h3>
   <h4>4.3.1 Verificarea dacă un cerc este într-un dreptunghi</h4>
   <p>
-  Pentru realizarea acestei funcții, am folosit drept fundament matematic <i>AABB</i>-ul, abreviere pentru <i>axis aligned bounding box</i>. Pe scurt, am calculat coordonatele punctelor care împart laturile dreptunghiului curent în jumătate, iar apoi coordonatele centrului acestuia. Am salvat, ulterior, diferența dintre coordonatele centrului dreptunghiului și cele ale cercului dat ca parametru, definit prin coordonatele centrului și lungimea razei. Urmează să salvăm și diferența, pe coordonate, dintre centrul cercului dat și centrul dreptunghiului curent. Mai departe, am folosit ceea ce se numește \textit{clamping}, metodă ce restricționează o valoare numerică într-un interval dat de alte două. În cazul de față, folosim această metoda a afla cel mai apropiat punct al dreptunghiului de centrul cercului. Funcția va returna dacă distanța euclidiană de la cel mai apropiat punct al dreptunghiului de cerc este mai mica sau egala cu raza.
+  Pentru realizarea acestei funcții, am folosit drept fundament matematic <i>AABB</i>-ul, abreviere pentru <i>axis aligned bounding box</i>. Pe scurt, am calculat coordonatele punctelor care împart laturile dreptunghiului curent în jumătate, iar apoi coordonatele centrului acestuia. Am salvat, ulterior, diferența dintre coordonatele centrului dreptunghiului și cele ale cercului dat ca parametru, definit prin coordonatele centrului și lungimea razei. Urmează să salvăm și diferența, pe coordonate, dintre centrul cercului dat și centrul dreptunghiului curent. Mai departe, am folosit ceea ce se numește \textit{clamping}, metodă ce restricționează o valoare numerică într-un interval dat de alte două. În cazul de față, folosim această metoda pentru a afla cel mai apropiat punct al dreptunghiului de centrul cercului. Funcția va returna dacă distanța euclidiană de la cel mai apropiat punct al dreptunghiului de cerc este mai mica sau egala cu raza.
   </p>
   <h4>4.3.3 Inserare</h4>
   <p>
@@ -64,7 +64,7 @@ Alegând arbitrar un spațiu dreptunghiular și 100 de obiecte care îl populeaz
   </p>
   <h4>4.3.5 Ștergere</h4>
   <p>
-Ștergerea începe identic cu inserarea, întrucât este necesar sa cunoaștem dacă cercul este sau nu încadrat în nodul, sau sub-spațiul, curent. Dacă sub-spațiul curent nu mai este partiționat, sau în alți termeni, dacă nodul curent este frunză, atunci putem parcurge cercurile prezente în acel sub-spațiu și îl putem șterge pe cel dorit. Altfel, dacă spațiul curent este partiționat, continuăm căutarea pe alt sub-nod.
+Ștergerea începe identic cu inserarea, întrucât este necesar sa cunoaștem dacă cercul este sau nu încadrat în nodul, sau sub-spațiul, curent. Dacă sub-spațiul curent nu mai este partiționat, sau, altfel spus, dacă nodul curent este frunză, atunci putem parcurge cercurile prezente în acel sub-spațiu și îl putem șterge pe cel dorit. Altfel, dacă spațiul curent este partiționat, continuăm căutarea pe alt nod.
   </p>
   
   <h4>4.3.6 Afișare grafică</h4>
@@ -87,14 +87,14 @@ Orice obiect deriva din clasa <i>circle.h</i> care are ca și câmpuri private c
   <hr> 
   <h3>6.1 Prezentare</h3>
   <p>
-Aplicația urmărește punerea în evidență a coliziunilor dintre cercuri care traversează ecranul de la stânga la dreapta, fiind vizibile totodată spațiile partiționate și numărul de cercuri care le populează. Între oricare două cercuri tangente se trasează o linie, pentru ilustrarea coliziunii. 
+Aplicația urmărește punerea în evidență a coliziunilor dintre cercuri care traversează ecranul de la stânga la dreapta, fiind vizibile totodată spațiile partiționate și numărul de cercuri care le populează. Între oricare două cercuri tangente sau confundate se trasează o linie, pentru ilustrarea coliziunii. 
   </p>
   <h3>6.2 Implementare</h3>
   <p>
-Funcțiile de <i>OnUserCreate()</i> și <i>OnUserUpdate()</i> fac parte din biblioteca <i>olcPixelGameEngine.h</i> și se referă la generarea condițiilor de start ale aplicației și, respectiv, continuarea și alterarea condițiilor în ciclu infinit. Pentru a modifica în clasa aplicației aceste metode, am utilizat funcționalitatea de <i>override</i> din C++. 
+Funcțiile de <i>OnUserCreate()</i> și <i>OnUserUpdate()</i> fac parte din biblioteca <i>olcPixelGameEngine.h</i> și se referă la generarea condițiilor de start ale aplicației și, respectiv, continuarea și alterarea condițiilor inițiale în ciclu infinit. Pentru a modifica în clasa aplicației aceste metode, am utilizat funcționalitatea de <i>override</i> din C++. 
   </p>
   <p>
-  Funcția de <i>OnUserCreate()</i> creează primul arborele cu nodul inițial și resetează datele: șterge toate obiectele, distruge toate nodurile, realizează un <i>random seed</i> și generează 100 de obiecte noi, pe care le adaugă în vectorul de obiecte și le inserează în arbore.
+  Funcția de <i>OnUserCreate()</i> creează primul arbore cu nodul inițial și resetează datele: șterge toate obiectele, distruge toate nodurile, realizează un <i>random seed</i> și generează 100 de obiecte noi, pe care le adaugă în vectorul de obiecte și le inserează în arbore.
   </p>
   
   <p>
