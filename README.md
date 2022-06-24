@@ -104,7 +104,7 @@ Funcțiile de <i>OnUserCreate()</i> și <i>OnUserUpdate()</i> fac parte din bibl
   <h2>7. Posibilități de expansiune</h2>
   <hr>
   <p>
-  Orice proiect are o posibilitate de a fi continuat spre a atinge noi limite de performanță sau noi funcționalități. Proiectul discutat în această lucrare poate fi extins pe mai să rezolve problemele ce apar la coliziune, prin introducerea unui sistem de forțe fizice. Totodată, se pot realiza operații de verificare a coliziunii pentru orice forma geometrică. Sistemul creat poate fi folosit cu ușurință și în realizarea unui joc video de tip arcade, precum un <i>space shooter</i> sau <i>PAC-MAN</i>.
+  Orice proiect are o posibilitate de a fi continuat spre a atinge noi limite de performanță sau noi funcționalități. Proiectul discutat în această lucrare poate fi extins să rezolve problemele ce apar la coliziune, prin introducerea unui sistem de forțe fizice. Totodată, se pot realiza operații de verificare a coliziunii pentru orice forma geometrică. Sistemul creat poate fi folosit cu ușurință și în realizarea unui joc video de tip arcade, precum un <i>space shooter</i> sau <i>PAC-MAN</i>.
   </p>
   
   <h2>8. Concluzii</h2>
